@@ -1,12 +1,15 @@
+import { useActionData } from "react-router-dom";
 import LogInForm from "../../components/LogInForm/LogInForm";
 import SignUpForm from "../../components/SignUpForm/SignUpForm";
+import { useState } from "react";
 
-export default function authPage({ setUser }) {
+export default function AuthPage({ setUser }) {
+  const [showLogIn, setShowLogIn] = useState(true);
   return(
     <main>
       <h1>AuthPage</h1>
-      <SignUpForm setUser={setUser}/>
-      <LogInForm setUser={setUser} />
-    </main>
+      {showLogIn ? <LogInForm setUser={setUser} /> : <SignUpForm setUser={setUser} />}
+      <h3 onClick={() => setShowLogIn(!showLogIn)}>{showLogIn ? 'SIGN UP' : 'LOG IN'}</h3>
+      </main>
   )
 }
