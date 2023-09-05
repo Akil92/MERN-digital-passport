@@ -5,3 +5,8 @@ export async function create(destinations){
     localStorage.setItem('destination', destination);
     return destination;
 };
+
+export async function index(destinaitons) {
+    const destination = await destinationsAPI.index(destinaitons);
+    return destination;
+}

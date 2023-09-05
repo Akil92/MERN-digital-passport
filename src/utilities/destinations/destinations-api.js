@@ -6,3 +6,7 @@ const BASE_URL = '/api/destinations';
 export async function create(destination) {
     return sendRequest(BASE_URL, 'POST', destination);
   }
+
+export async function index() {
+    return sendRequest(BASE_URL, 'GET');
+}

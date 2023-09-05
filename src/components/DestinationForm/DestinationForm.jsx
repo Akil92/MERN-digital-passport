@@ -1,18 +1,17 @@
 import { useState } from "react";
 import * as destinationsService from "../../utilities/destinations/destinations-service";
-import DatePicker from 'react-datepicker';
 
 
-export default function DestinationForm(){
+
+export default function DestinationForm({}){
   const [destinations, setDestinations] = useState({
     country:'',
     city:'',
     travelDate:'',
-    returnDate:''
+    returnDate:'',
   });
 
   const [error, setError] = useState('');
-  const [date, setDate] = useState(new Date());
 
   function handleChange(evt) {
     setDestinations({ ...destinations, [evt.target.name]: evt.target.value });
@@ -22,9 +21,14 @@ export default function DestinationForm(){
   async function handleSubmit(evt){
     evt.preventDefault();
     try {
-        const newDestination = await destinationsService.create(/* data */);
+        const newDestination = await destinationsService.create(destinations);
         console.log(newDestination);
-        setDestinations(newDestination);
+        setDestinations({
+            country: '',
+            city: '',
+            travelDate: '',
+            returnDate: ''
+        });
       } catch(err) {
           console.log(err);
         setError('Adding Destination Failed - Try Again');
@@ -40,11 +44,11 @@ export default function DestinationForm(){
             <label>Country:</label>
             <input type="text" name="country" value={destinations.country} onChange={handleChange} required></input>
             <label>City:</label>
-            <input type="text" name="city" value={destinations.city} onChange={handleChange} required></input>
+            <input type="text" name="city" value={destinations.city} onChange={handleChange}></input>
             <label>Travel Date:</label>
-            <DatePicker selected={date} onChange={(date) => setDate(date)} />
+            <input type="date" name="travelDate" value={destinations.travelDate} onChange={handleChange}></input>
             <label>Return Date:</label>
-            <input type="date" name="returnDate" value={destinations.returnDate} selected={date} onChange={(date) => setDate(date)}></input>
+            <input type="date" name="returnDate" value={destinations.returnDate} onChange={handleChange}></input>
             <button>Submit</button>
           </form>
         </div>
