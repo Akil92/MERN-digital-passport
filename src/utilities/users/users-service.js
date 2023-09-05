@@ -1,4 +1,4 @@
-import * as usersAPI from "./users-api"
+import * as usersAPI from "../users/users-api";
 
 export async function signUp(userData){
     // Delegate the network request code to the users-api.js API module

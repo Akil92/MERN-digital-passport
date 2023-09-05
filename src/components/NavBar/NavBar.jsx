@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import * as useService from '../../utilities/users-service';
+import * as useService from '../../utilities/users/users-service';
 
 export default function NavBar({ user, setUser }){
 

@@ -1,4 +1,4 @@
-import { checkToken } from "../../utilities/users-service"
+import { checkToken } from "../../utilities/users/users-service"
 
 export default function orderHistoryPage() {
     async function handleCheckToken(){
