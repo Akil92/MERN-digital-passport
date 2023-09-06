@@ -1,5 +1,6 @@
-import { useState } from "react";
+import React,{ useState, useEffect } from "react";
 import * as destinationsService from "../../utilities/destinations/destinations-service";
+
 
 
 
@@ -10,6 +11,16 @@ export default function DestinationForm({}){
     travelDate:'',
     returnDate:'',
   });
+  
+//   const [country, setCountry] = useState(null);
+//   const [state, seState] = useState(null);
+//   const [city, setCity] = useState(null);
+//   useEffect(() => {
+//     console.log(selectedCountry);
+//     console.log(selectedCountry?.isoCode);
+//     console.log(State?.getStatesOfCountry(selectedCountry?.isoCode));
+//   }, [selectedCountry]);
+//   console.log(Country.getAllCountries())
 
   const [error, setError] = useState('');
 

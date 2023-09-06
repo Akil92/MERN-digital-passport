@@ -1,7 +1,7 @@
 import { useActionData } from "react-router-dom";
 import LogInForm from "../../components/LogInForm/LogInForm";
 import SignUpForm from "../../components/SignUpForm/SignUpForm";
-import { useState } from "react";
+import React, { useState } from "react";
 
 export default function AuthPage({ setUser }) {
   const [showLogIn, setShowLogIn] = useState(true);

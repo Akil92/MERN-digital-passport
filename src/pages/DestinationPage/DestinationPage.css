@@ -2,14 +2,17 @@
   font-size: larger;
   font-weight: 900;
   color: darkblue;
-  background: url("../../../public/Images/capture1.jpg");
+  background: url("../../capture1.jpg");
   width:300px;
-  display: grid;
-  grid-template-columns: repeat(4, 300px);
   border-style:dotted;
   border-radius: 20px;
 }
 
 .list:hover {
   color:aliceblue;
+}
+
+.list-grid {
+  display: grid;
+  grid-template-columns:25% 25% 25% 25%;
 }

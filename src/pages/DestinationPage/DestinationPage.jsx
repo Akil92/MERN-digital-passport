@@ -1,4 +1,4 @@
-import { useState, useEffect} from "react";
+import React, { useState, useEffect} from "react";
 import * as destinationsApi from "../../utilities/destinations/destinations-api";
 import "./DestinationPage.css";
 import { Link } from "react-router-dom";
@@ -16,10 +16,11 @@ export default function DestinationPage({}){
   },[])
 
     return(
-      <div className="list">
+        <div>
         <p>Destination List</p>
+        <div className="list-grid">
         {destination.map((n)=> (
-          <div> 
+          <div className="list"> 
             <p>Location:</p>
             <Link to={"/destinations/" + n.country}>
               {n.city}, {n.country}
@@ -28,6 +29,7 @@ export default function DestinationPage({}){
             </Link>
          </div>  
         ))}
+        </div>
       </div>
     )
 }
