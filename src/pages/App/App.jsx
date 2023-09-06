@@ -22,6 +22,7 @@ export default function App() {
             <Route path='/destinations' element={<DestinationPage />}  />
             <Route path='' />
           </Routes>  
+          <img alt='' src='../../public/images/Traveler.webp'></img>
           <DestinationForm />
         </>
         :
