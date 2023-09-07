@@ -10,3 +10,8 @@ export async function index(destinaitons) {
     const destination = await destinationsAPI.index(destinaitons);
     return destination;
 }
+
+export async function getById(destinationID) {
+    const destination = await destinationsAPI.getById(destinationID);
+    return destination;
+}

@@ -10,3 +10,7 @@ export async function create(destination) {
 export async function index() {
     return sendRequest(BASE_URL, 'GET');
 }
+
+export async function getById(destinationID) {
+    return sendRequest(`${BASE_URL}/${destinationID}`, 'GET'); 
+}

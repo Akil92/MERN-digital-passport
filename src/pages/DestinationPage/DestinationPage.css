@@ -1,11 +1,14 @@
 .list {
   font-size: larger;
   font-weight: 900;
-  color: darkblue;
-  background: url("../../capture1.jpg");
+  color: black;
+  background: #D3C1AE;;
   width:300px;
-  border-style:dotted;
+  border-style:solid;
+  border-width: 5px;
   border-radius: 20px;
+  margin-bottom: 10px;
+  padding-bottom: 10px;
 }
 
 .list:hover {
@@ -15,4 +18,9 @@
 .list-grid {
   display: grid;
   grid-template-columns:25% 25% 25% 25%;
+}
+
+.list a{
+  text-decoration: none;
+  color:black;
 }

@@ -1,6 +1,7 @@
 .App {
   text-align: center;
-  background: url("../../passport.jpeg");
+  background: url('../../../public/Images/passport.jpeg');
+  height:100vh ;
 }
 
 .App-logo {

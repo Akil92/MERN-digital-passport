@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import * as useService from '../../utilities/users/users-service';
+import "./NavBar.css"
 
 export default function NavBar({ user, setUser }){
 
@@ -10,7 +11,7 @@ export default function NavBar({ user, setUser }){
     }
 
     return(
-        <nav>
+        <nav className="nav">
             <Link to="/destinations">Destination List</Link>
             &nbsp; | &nbsp;
             <Link to="/">Home</Link>

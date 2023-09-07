@@ -2,6 +2,7 @@ import React, { useState, useEffect} from "react";
 import * as destinationsApi from "../../utilities/destinations/destinations-api";
 import "./DestinationPage.css";
 import { Link } from "react-router-dom";
+import DestinationDetailPage from "../DestinationDetailPage/DestinationDetailPage";
 
 
 
@@ -17,15 +18,13 @@ export default function DestinationPage({}){
 
     return(
         <div>
-        <p>Destination List</p>
+        <h1>Destination List</h1>
         <div className="list-grid">
         {destination.map((n)=> (
-          <div className="list"> 
+          <div className="list" key={n._id}> 
             <p>Location:</p>
-            <Link to={"/destinations/" + n.country}>
+            <Link to={`/destinations/${n._id}`}>
               {n.city}, {n.country}
-              <p>{n.travelDate}</p>
-              <p>{n.returnDate}</p>
             </Link>
          </div>  
         ))}

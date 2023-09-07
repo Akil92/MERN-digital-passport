@@ -1,6 +1,5 @@
-import React,{ useState, useEffect } from "react";
+import { useState } from "react";
 import * as destinationsService from "../../utilities/destinations/destinations-service";
-import { Country, State, City } from "country-state-city";
 
 
 
@@ -12,16 +11,6 @@ export default function DestinationForm({}){
     travelDate:'',
     returnDate:'',
   });
-  
-  const [country, setCountry] = useState(null);
-  const [state, seState] = useState(null);
-  const [city, setCity] = useState(null);
-  useEffect(() => {
-    console.log(selectedCountry);
-    console.log(selectedCountry?.isoCode);
-    console.log(State?.getStatesOfCountry(selectedCountry?.isoCode));
-  }, [selectedCountry]);
-  console.log(Country.getAllCountries())
 
   const [error, setError] = useState('');
 
@@ -43,7 +32,7 @@ export default function DestinationForm({}){
         });
       } catch(err) {
           console.log(err);
-        setError('Adding Destination Failed - Try Again');
+          setError('Adding Destination Failed - Try Again');
       }
     }
  
