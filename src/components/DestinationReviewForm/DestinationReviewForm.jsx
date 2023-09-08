@@ -7,7 +7,7 @@ export default function DestinationReviewForm({ destinationID }){
     const [review, setReview] = useState({
         food:'',
         weather:'',
-        scenary:'',
+        scenery:'',
         events:'',
         additionalComments:''
     });
@@ -27,7 +27,7 @@ export default function DestinationReviewForm({ destinationID }){
         setReview({
           food:'',
           weather:'',
-          scenary:'',
+          scenery:'',
           events:'',
          additionalComments:'' 
         });
@@ -48,7 +48,7 @@ export default function DestinationReviewForm({ destinationID }){
           <label>Weather:</label>
           <input type="text" name="weather" value={review.weather} onChange={handleChange}/>
           <label>Scenary:</label>
-          <input type="text" name="scenary" value={review.scenary} onChange={handleChange}/>
+          <input type="text" name="scenery" value={review.scenery} onChange={handleChange}/>
           <label>Events:</label>
           <input type="text" name="events" value={review.events} onChange={handleChange}/>
           <label>Additional Comments:</label>

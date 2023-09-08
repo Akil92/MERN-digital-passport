@@ -9,3 +9,7 @@ export async function create(review, destinationID){
 export async function index(review, destinationID){
   return sendRequest(`${BASE_URL}/${destinationID}`, 'GET', review);
 }
+
+export async function addReview(review, destinationID) {
+  return sendRequest(`${BASE_URL}/${destinationID}`, 'POST', review);
+}
