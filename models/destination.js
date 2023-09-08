@@ -10,7 +10,9 @@ const destinationSchema = new Schema({
     default: function() {
         return new Date(+ new Date());
     },
-  }
+  },
+  reviews: [{type: Schema.Types.ObjectId, ref: 'review'}],
+  user: {type: Schema.Types.ObjectId, ref: 'user'}
 });
 
 module.exports = mongoose.model('Destination', destinationSchema);

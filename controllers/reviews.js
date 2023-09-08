@@ -11,6 +11,13 @@ async function create(req, res) {
     }
   }
 
+async function index(req, res) {
+  console.log(req.body, 'request');
+  const review = await Review.find({});
+  res.json(review);
+}
+
 module.exports ={
-  create
+  create,
+  index
 }
