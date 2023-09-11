@@ -7,13 +7,13 @@
   border-style:solid;
   border-width: 5px;
   border-radius: 20px;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
   padding-bottom: 10px;
 }
 
 .list:hover {
   color:aliceblue;
-  
+
 }
 
 .list-grid {

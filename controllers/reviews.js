@@ -30,7 +30,22 @@ async function addReview(req, res) {
   }
 }
 
+async function deleteReview(req, res) {
+  try {
+    const reviewId = req.params.reviewId;
+    const deletedReview = await Review.findByIdAndDelete(reviewId);
+    if (!deletedReview) {
+      return res.status(404).json({ message: 'Review not found' });
+    }
+    res.json({ message: 'Review deleted successfully' });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: 'Internal server error' });
+  }
+}
+
 module.exports ={
   index,
-  addReview
+  addReview,
+  deleteReview
 }

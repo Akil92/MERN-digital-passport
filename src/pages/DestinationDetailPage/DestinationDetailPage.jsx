@@ -37,14 +37,17 @@ export default function DestinationDetailPage(){
               <p>{destinationDetail.returnDate}</p>
             </div>
             {reviews.map((r)=> (
-             <div key={r.id}className="experience">
-              <h1>Here's a review of your experience</h1>
-              Food:{r.food}<br></br>
-              Weather:{r.weather}<br></br>
-              Scenery:{r.scenery}<br></br>
-              Events:{r.events}<br></br>
-              Additional Comments:{r.additionalComments}
-            </div>
+             <div key={r.id} className="experience">
+                <div className="reviewList">
+                  <h1>Here's a review of your experience</h1>
+                  Food:{r.food}<br></br>
+                  Weather:{r.weather}<br></br>
+                  Scenery:{r.scenery}<br></br>
+                  Events:{r.events}<br></br>
+                  Additional Comments:{r.additionalComments}
+                  <button>delete</button>
+                </div>
+              </div>
             ))} 
             <DestinationReviewForm destinationID={destinationDetail._id} setReviews={setReviews}/>
           </>}

@@ -3,6 +3,7 @@ import * as destinationsApi from "../../utilities/destinations/destinations-api"
 import "./DestinationPage.css";
 import { Link } from "react-router-dom";
 import DestinationDetailPage from "../DestinationDetailPage/DestinationDetailPage";
+import DestinationForm from '../../components/DestinationForm/DestinationForm';
 
 
 
@@ -29,6 +30,7 @@ export default function DestinationPage({}){
          </div>  
         ))}
         </div>
+        <DestinationForm />
       </div>
     )
 }
