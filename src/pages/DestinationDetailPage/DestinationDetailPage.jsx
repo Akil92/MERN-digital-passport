@@ -3,7 +3,8 @@ import * as destinationsApi from "../../utilities/destinations/destinations-api"
 import { useParams } from "react-router-dom";
 import DestinationReviewForm from "../../components/DestinationReviewForm/DestinationReviewForm";
 import * as reviewsApi from "../../utilities/reviews/reviews-api";
-import "./DestinationDetailPage"
+import "./DestinationDetailPage.css";
+import "../../components/DestinationReviewForm/DestinationReviewForm";
 
 
 
@@ -11,13 +12,14 @@ import "./DestinationDetailPage"
 export default function DestinationDetailPage(){
     const { id } = useParams();
     const [destinationDetail, setDestinationDetail] = useState([]);
+    const [reviews,setReviews] = useState([]);
     useEffect(() => {
         console.log(id);
       async function getDestinationDetail() {
         try{
-          const detail = await destinationsApi.getById(id);
-          console.log(detail);
-          setDestinationDetail(detail);
+          const response = await destinationsApi.getById(id);
+          setDestinationDetail(response.destination);
+          setReviews(response.reviews);
         } catch (err){
             console.log(err);
         }  
@@ -25,29 +27,17 @@ export default function DestinationDetailPage(){
       getDestinationDetail();
     },[]);
 
-    const [review,setReview] = useState([]);
-    useEffect(function() {
-      async function getReview() {
-        try {
-          const info = await reviewsApi.index();
-          setReview(info);
-          console.log(info)
-        } catch (error) {
-          console.log(error);
-        }
-      }
-      getReview();
-    }, []);
-  
       return(
         <div key={id}>
           <h1>Destination Detail</h1>
           {destinationDetail && <>
-            <p>{destinationDetail.city}, {destinationDetail.country}</p>
-            <p>{destinationDetail.travelDate}</p> 
-            <p>{destinationDetail.returnDate}</p>
-            {review.map((r)=> (
-             <div className="experience">
+            <div className="detailP">
+              <p>{destinationDetail.city}, {destinationDetail.country}</p>
+              <p>{destinationDetail.travelDate}</p> 
+              <p>{destinationDetail.returnDate}</p>
+            </div>
+            {reviews.map((r)=> (
+             <div key={r.id}className="experience">
               <h1>Here's a review of your experience</h1>
               Food:{r.food}<br></br>
               Weather:{r.weather}<br></br>
@@ -56,7 +46,7 @@ export default function DestinationDetailPage(){
               Additional Comments:{r.additionalComments}
             </div>
             ))} 
-            <DestinationReviewForm destinationID={destinationDetail._id}/>
+            <DestinationReviewForm destinationID={destinationDetail._id} setReviews={setReviews}/>
           </>}
         </div>  
       )

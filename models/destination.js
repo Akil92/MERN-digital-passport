@@ -11,7 +11,7 @@ const destinationSchema = new Schema({
         return new Date(+ new Date());
     },
   },
-  reviews: [{type: Schema.Types.ObjectId, ref: 'review'}],
+  // reviews: [{type: Schema.Types.ObjectId, ref: 'review'}],
   user: {type: Schema.Types.ObjectId, ref: 'user'}
 });
 

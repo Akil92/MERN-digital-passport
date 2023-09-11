@@ -7,3 +7,18 @@
     margin-bottom: 10px;
     padding-bottom: 10px;
 }
+
+.detailP{
+  background: #D3C1AE;
+  width: 600px;
+  height: 180px;
+  border-width: 5px;
+  border-radius: 20px;
+  margin-top: 50px;
+  padding-top: 4px;
+  font-size: x-large;
+  font-weight: 900;
+  border-style: solid;
+  margin:auto;
+}
+

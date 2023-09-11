@@ -2,7 +2,7 @@ import { useState } from "react"
 import * as reviewService from "../../utilities/reviews/reviews-service";
 
 
-export default function DestinationReviewForm({ destinationID }){
+export default function DestinationReviewForm({ destinationID, setReviews}){
     console.log(destinationID);
     const [review, setReview] = useState({
         food:'',
@@ -22,8 +22,8 @@ export default function DestinationReviewForm({ destinationID }){
     async function handleSubmit(evt) {
       evt.preventDefault();
       try {
-        const newReview = await reviewService.create(review, destinationID);
-        console.log(newReview);
+        const allReviews = await reviewService.addReview(review, destinationID);
+        setReviews(allReviews);
         setReview({
           food:'',
           weather:'',
@@ -36,7 +36,6 @@ export default function DestinationReviewForm({ destinationID }){
         setError('Adding Review Failed-Try Again');
       }
     }
-
 
   return(
     <div>

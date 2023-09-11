@@ -1,4 +1,5 @@
 const Destination = require('../models/destination');
+const Review = require('../models/review');
 
 async function create(req, res) {
     console.log(req.body,'request');
@@ -27,9 +28,10 @@ try {
     // If the destination with the specified ID is not found, return a 404 error
     return res.status(404).json({ message: 'Destination not found' });
     }
-
     // If the destination is found, return it as a response
-    return res.status(200).json(destination);
+    const reviews = await Review.find({ destination: destination._id }).exec()
+    console.log(reviews);
+    return res.status(200).json({destination, reviews});
 } catch (error) {
     // Handle errors, e.g., database errors
     return res.status(500).json({ message: 'Internal server error' });
