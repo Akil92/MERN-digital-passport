@@ -1,6 +1,10 @@
 import { useState } from "react";
+import { useLocation } from "react-router-dom";
+import * as reviewsApi from "../../utilities/reviews"
 
 export default function EditDestinationReviewForm({destinationID, setReviews}){
+    const location = useLocation();
+    const { initReview } = location.state
     const [editReview, setEditReview] = useState({
         food:'',
         weather:'',
@@ -18,34 +22,18 @@ export default function EditDestinationReviewForm({destinationID, setReviews}){
     async function handleSubmit(evt) {
         evt.preventDefault();
         try {
-          // Send an HTTP request to update the review with the updated data
-          const response = await fetch(`/api/reviews/${destinationID}`, {
-            method: 'PUT', // or 'PATCH' depending on your API
-            headers: {
-              'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(editReview),
-          });
+          const editedReview = await reviewsApi.editReview(reviewId);
+          const updated = await reviewsApi.updateReview(reviewId, editedReview);
       
-          if (response.ok) {
-            // The review was successfully updated, you can handle the response as needed
-            // For example, you can update the reviews list with setReviews
-            const updatedReview = await response.json();
-            setReviews((prevReviews) =>
-              prevReviews.map((r) => (r.id === updatedReview.id ? updatedReview : r))
-            );
-          } else {
-            // Handle any error responses from the server
-            setError('Failed to update the review.');
-          }
+          // Handle the results as needed
+          // ...
         } catch (error) {
-          // Handle any network or unexpected errors
           setError('An error occurred while updating the review.');
           console.error(error);
         }
       }
 
-      
+
     return(
         <div>
           Edit Review

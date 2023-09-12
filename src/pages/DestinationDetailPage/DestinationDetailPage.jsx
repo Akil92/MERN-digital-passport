@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import * as destinationsApi from "../../utilities/destinations/destinations-api";
-import { useParams } from "react-router-dom";
+import { useParams, useLocation } from "react-router-dom";
 import DestinationReviewForm from "../../components/DestinationReviewForm/DestinationReviewForm";
 import * as reviewsApi from "../../utilities/reviews/reviews-api";
 import "./DestinationDetailPage.css";
@@ -10,9 +10,12 @@ import { Link } from "react-router-dom";
 
 
 
+
 export default function DestinationDetailPage(){
     const { id } = useParams();
     const [destinationDetail, setDestinationDetail] = useState([]);
+    const location = useLocation();
+    const { initReview } = location.state
     const [reviews,setReviews] = useState([]);
     const formatted = new Date(destinationDetail.travelDate).toLocaleDateString("en", {
       year: "numeric",
@@ -68,14 +71,14 @@ export default function DestinationDetailPage(){
                   Scenery:{r.scenery}<br></br>
                   Events:{r.events}<br></br>
                   Additional Comments:{r.additionalComments}
-                  <Link to={`/${r._id}`}>
+                  <Link to={`/${r._id}`} state={{initReview: r}}>
                     <button>Edit</button>
                   </Link>
                   { <button onClick={() => handleDeleteReview(r._id)}>Delete</button> }
                 </div>
               </div>
             ))} 
-            <DestinationReviewForm destinationID={destinationDetail._id} setReviews={setReviews} />
+            <DestinationReviewForm  destinationID={destinationDetail._id} setReviews={setReviews} />
           </>}
         </div>  
       )
