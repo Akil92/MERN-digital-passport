@@ -42,8 +42,32 @@ async function deleteReview(req, res) {
   }
 }
 
+async function editReview(req, res) {
+  const editReview = await Review.findOne({_id: req.params.reviewId});
+  res.json(editReview);
+}
+
+async function updateReview(req, res) {
+  try {
+    const updatedReview = await Review.findOneAndUpdate( 
+    {_id: req.params.reviewId,},
+    req.body,
+    {new: true},
+  );
+  if (!updatedReview) {
+    return res.status(404).json({message: "Review not found."});
+  }
+  res.json(updatedReview);
+  } catch(err) {
+    console.log(err);
+    res.status(500).json({ message: 'Internal server error' });
+  }
+};
+
 module.exports ={
   index,
   addReview,
-  deleteReview
+  deleteReview,
+  editReview,
+  updateReview
 }

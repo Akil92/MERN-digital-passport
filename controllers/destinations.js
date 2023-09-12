@@ -4,12 +4,25 @@ const Review = require('../models/review');
 async function create(req, res) {
     console.log(req.body,'request');
     try{
-
       const destination = await Destination.create(req.body);
     } catch (err) {
         console.log(err);
        // 400 = Bad Request
       res.status(400).json(err);
+    }
+  }
+
+  async function deleteDestination(req, res) {
+    try {
+      const destination = req.params.destinationID;
+      const deletedDestination = await Destination.findByIdAndDelete(destinationID);
+      if (!deletedDestination) {
+        return res.status(404).json({ message: 'Destination not found' });
+      }
+      res.json({ message: 'Destination deleted successfully' });
+    } catch (error) {
+      console.error(error);
+      res.status(500).json({ message: 'Internal server error' });
     }
   }
 
@@ -40,5 +53,6 @@ try {
   module.exports ={
     create,
     index,
-    getById
+    getById,
+    deleteDestination
   }

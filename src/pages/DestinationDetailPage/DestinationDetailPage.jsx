@@ -5,7 +5,8 @@ import DestinationReviewForm from "../../components/DestinationReviewForm/Destin
 import * as reviewsApi from "../../utilities/reviews/reviews-api";
 import "./DestinationDetailPage.css";
 import "../../components/DestinationReviewForm/DestinationReviewForm";
-
+import EditDestinationReviewForm from "../../components/EditDestinationReviewForm/EditDestinationReviewForm";
+import { Link } from "react-router-dom";
 
 
 
@@ -67,7 +68,10 @@ export default function DestinationDetailPage(){
                   Scenery:{r.scenery}<br></br>
                   Events:{r.events}<br></br>
                   Additional Comments:{r.additionalComments}
-                  { <button onClick={() => handleDeleteReview(r._id)}>delete</button> }
+                  <Link to={`/${r._id}`}>
+                    <button>Edit</button>
+                  </Link>
+                  { <button onClick={() => handleDeleteReview(r._id)}>Delete</button> }
                 </div>
               </div>
             ))} 

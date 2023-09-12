@@ -9,6 +9,7 @@ import { getUser } from '../../utilities/users/users-service';
 import DestinationPage from '../DestinationPage/DestinationPage';
 import * as destinationsService from "../../utilities/destinations/destinations-service";
 import DestinationDetailPage from "../DestinationDetailPage/DestinationDetailPage";
+import EditDestinationReviewPage from "./EditDestinationReviewPage/EditDestinationReviewPage";
 
 export default function App() {
   const [user, setUser] = useState(getUser());
@@ -23,6 +24,7 @@ export default function App() {
           <Routes>
             <Route path='/destinations' element={<DestinationPage />}  />
             <Route path='/destinations/:id' element={<DestinationDetailPage />} />
+            <Route path='/:reviewId' element={<EditDestinationReviewPage/>}/>
           </Routes>  
           <img alt='' src='../../public/images/Traveler.webp'></img>
           

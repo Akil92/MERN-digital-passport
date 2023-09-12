@@ -3,7 +3,6 @@ import * as reviewService from "../../utilities/reviews/reviews-service";
 
 
 export default function DestinationReviewForm({ destinationID, setReviews}){
-    console.log(destinationID);
     const [review, setReview] = useState({
         food:'',
         weather:'',

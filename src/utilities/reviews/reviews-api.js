@@ -14,3 +14,11 @@ export async function addReview(review, destinationID) {
 export async function deleteReview(destinationID) {
   return sendRequest(`${BASE_URL}/${destinationID}`, 'DELETE');
 }
+
+export async function editReview(reviewId) {
+  return sendRequest(`${BASE_URL}/${reviewId}`, 'GET');
+}
+
+export async function updateReview(reviewId, updatedReview) {
+  return sendRequest(`${BASE_URL}/${reviewId}`, 'PUT', updatedReview);
+}
