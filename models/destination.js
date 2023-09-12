@@ -8,10 +8,9 @@ const destinationSchema = new Schema({
   returnDate: {
     type: Date,
     default: function() {
-        return new Date(+ new Date());
+        return new Date(+ Date());
     },
   },
-  // reviews: [{type: Schema.Types.ObjectId, ref: 'review'}],
   user: {type: Schema.Types.ObjectId, ref: 'user'}
 });
 

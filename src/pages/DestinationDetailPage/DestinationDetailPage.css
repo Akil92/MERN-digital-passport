@@ -5,8 +5,8 @@
     border-width: 5px;
     border-radius: 20px;
     margin-bottom: 20px;
+    margin: 20px auto;
     padding-bottom: 20px;
-    margin:auto;
 }
 
 .detailP{
@@ -25,5 +25,5 @@
 }
 
 .reviewList{
-  
+  margin-bottom: 20px;
 }

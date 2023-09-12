@@ -10,3 +10,7 @@ export async function index(review, destinationID){
 export async function addReview(review, destinationID) {
   return sendRequest(`${BASE_URL}/${destinationID}`, 'POST', review);
 }
+
+export async function deleteReview(destinationID) {
+  return sendRequest(`${BASE_URL}/${destinationID}`, 'DELETE');
+}

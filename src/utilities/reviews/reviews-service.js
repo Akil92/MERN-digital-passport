@@ -10,3 +10,8 @@ export async function addReview(reveiw, destinationID) {
   const reviews = await reviewsApi.addReview(reveiw, destinationID);
   return reviews;
 }
+
+export async function deleteReview(reveiw, destinationID) {
+  const reviews = await reviewsApi.deleteReview(reveiw, destinationID);
+  return reviews;
+}

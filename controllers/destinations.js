@@ -8,7 +8,6 @@ async function create(req, res) {
       const destination = await Destination.create(req.body);
     } catch (err) {
         console.log(err);
-       // Client will check for non-2xx status code 
        // 400 = Bad Request
       res.status(400).json(err);
     }
@@ -22,18 +21,17 @@ async function index(req, res) {
 async function getById(req, res) {
 try {
     const destinationID = req.params.id; 
-    const destination = await Destination.findById(destinationID); // Replace with your actual data retrieval logic
-
+    const destination = await Destination.findById(destinationID);
     if (!destination) {
-    // If the destination with the specified ID is not found, return a 404 error
+    // If the destination with the specified ID is not found
     return res.status(404).json({ message: 'Destination not found' });
     }
-    // If the destination is found, return it as a response
+    // If the destination is found
     const reviews = await Review.find({ destination: destination._id }).exec()
     console.log(reviews);
     return res.status(200).json({destination, reviews});
 } catch (error) {
-    // Handle errors, e.g., database errors
+    // Handle errors
     return res.status(500).json({ message: 'Internal server error' });
 }
 }

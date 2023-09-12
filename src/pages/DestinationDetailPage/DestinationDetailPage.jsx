@@ -13,6 +13,28 @@ export default function DestinationDetailPage(){
     const { id } = useParams();
     const [destinationDetail, setDestinationDetail] = useState([]);
     const [reviews,setReviews] = useState([]);
+    const formatted = new Date(destinationDetail.travelDate).toLocaleDateString("en", {
+      year: "numeric",
+      month: "short",
+      day: "numeric"
+    });
+
+    const formatted1 = new Date (destinationDetail.returnDate).toLocaleDateString("en", {
+      year: "numeric",
+      month: "short",
+      day: "numeric"
+    });
+
+    const handleDeleteReview = async (reviewId) => {
+      try {
+        await reviewsApi.deleteReview(reviewId);
+        setReviews((allReviews) => allReviews.filter((r) => r.id !== reviewId));
+        window.location.reload();
+      } catch (error) {
+        console.error("Error deleting review:", error);
+      }
+    };
+
     useEffect(() => {
         console.log(id);
       async function getDestinationDetail() {
@@ -33,8 +55,8 @@ export default function DestinationDetailPage(){
           {destinationDetail && <>
             <div className="detailP">
               <p>{destinationDetail.city}, {destinationDetail.country}</p>
-              <p>{destinationDetail.travelDate}</p> 
-              <p>{destinationDetail.returnDate}</p>
+              <p>{formatted}</p> 
+              <p>{formatted1}</p>
             </div>
             {reviews.map((r)=> (
              <div key={r.id} className="experience">
@@ -45,11 +67,11 @@ export default function DestinationDetailPage(){
                   Scenery:{r.scenery}<br></br>
                   Events:{r.events}<br></br>
                   Additional Comments:{r.additionalComments}
-                  <button>delete</button>
+                  { <button onClick={() => handleDeleteReview(r._id)}>delete</button> }
                 </div>
               </div>
             ))} 
-            <DestinationReviewForm destinationID={destinationDetail._id} setReviews={setReviews}/>
+            <DestinationReviewForm destinationID={destinationDetail._id} setReviews={setReviews} />
           </>}
         </div>  
       )
