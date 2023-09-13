@@ -7,7 +7,6 @@ async function create(req, res) {
       const destination = await Destination.create(req.body);
       res.json(destination)
     } catch (err) {
-        console.log(err);
        // 400 = Bad Request
       res.status(400).json(err);
     }
@@ -29,7 +28,6 @@ try {
     }
     // If the destination is found
     const reviews = await Review.find({ destination: destination._id }).exec()
-    console.log(reviews);
     return res.status(200).json({destination, reviews});
 } catch (error) {
     // Handle errors

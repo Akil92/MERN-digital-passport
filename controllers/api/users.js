@@ -18,13 +18,8 @@ async function create(req, res) {
      // 400 = Bad Request
     res.status(400).json(err);
   }
-//   res.json({
-//     user: {
-//       name: req.body.name,
-//       email: req.body.email
-//     }
-//   });
 }
+
 
 /*-- Helper Functions --*/
 
@@ -50,7 +45,6 @@ function createJWT(user) {
   }
 
   function checkToken(req, res) {
-    console.log('req.user', req.user);
     res.json(req.exp);
   }
   

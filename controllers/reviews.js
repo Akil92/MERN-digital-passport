@@ -3,13 +3,11 @@ const Destination = require('../models/destination')
 
 
 async function index(req, res) {
-  console.log(req.body, 'request');
   const review = await Review.find({destination: req.params.id});
   res.json(review);
 }
 
 async function addReview(req, res) {
-  console.log(req.user);
   try {
     const destinationId = req.params.id;
     const reviewData = await req.body; 
@@ -55,7 +53,6 @@ async function updateReview(req, res) {
   }
   res.json(updatedReview);
   } catch(err) {
-    console.log(err);
     res.status(500).json({ message: 'Internal server error' });
   }
 };

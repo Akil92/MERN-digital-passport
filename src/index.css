@@ -92,7 +92,9 @@ form {
   display: grid;
   grid-template-columns: 1fr 3fr;
   gap: 1.25vmin;
-  color: var(--text-light);
+  font-weight: 900;
+  background-color: rgb(251, 249, 246);
+  padding-top: 7px;
 }
 
 label {

@@ -58,18 +58,18 @@ export default function DestinationDetailPage(){
           {destinationDetail && <>
             <div className="detailP">
               <p>{destinationDetail.city}, {destinationDetail.country}</p>
-              <p>{formatted}</p> 
-              <p>{formatted1}</p>
+              <p>Travel Date: {formatted}</p> 
+              <p>Return Date: {formatted1}</p>
             </div>
             {reviews.map((r)=> (
              <div key={r.id} className="experience">
                 <div className="reviewList">
                   <h1>Here's a review of your experience</h1>
-                  Food:{r.food}<br></br>
-                  Weather:{r.weather}<br></br>
-                  Scenery:{r.scenery}<br></br>
-                  Events:{r.events}<br></br>
-                  Additional Comments:{r.additionalComments}
+                  <p className="category">Food:</p>{r.food}<br></br>
+                  <p className="category">Weather:</p>{r.weather}<br></br>
+                  <p className="category">Scenery:</p>{r.scenery}<br></br>
+                  <p className="category">Events:</p>{r.events}<br></br>
+                  <p className="category">Additional Comments:</p>{r.additionalComments}
                   <Link to={`/${r._id}`} state={{initReview: r}}>
                     <button>Edit</button>
                   </Link>

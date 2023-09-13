@@ -23,13 +23,25 @@ export default function App() {
             <Route path='/destinations' element={<DestinationPage />}  />
             <Route path='/destinations/:id' element={<DestinationDetailPage />} />
             <Route path='/:reviewId' element={<EditDestinationReviewPage/>}/>
-          </Routes>  
-          <img alt='' src='../../public/images/Traveler.webp'></img>
+          </Routes> 
           
         </>
         :
         <AuthPage setUser={ setUser }/>
-      }     
+      }
+      <h1>Welcome to Digital Passport</h1>     
+    <img src="Images/Traveler.webp" className="center"/>
+    <h2 className="info">If you love to travel, this is the perfect app for you to use.
+      Think of an app that's like a passport but even BETTER.<br></br> 
+      Just lika a passport,this app is personal so nobody will have access to your trip information. <br></br>
+      Reminisce on some of your favorite experiences through our review form for each trip you go on. 
+    </h2>
+    <h3 className="features">Features to come:<br></br>
+       A drop-down list of all countries, cities. We provide you with the informationso you don't have to type it in.<br></br>
+       Allowing users to upload images of their trip<br></br>
+       Being able to view other user's destination reviews. This feature will help others with having additional information
+       before visiting a country.
+    </h3>
     </main>
   );
 }

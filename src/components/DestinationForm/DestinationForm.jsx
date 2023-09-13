@@ -40,16 +40,15 @@ export default function DestinationForm({onNewDestination}){
 
     return(
         <div className='form'>
-            
-          New Destination
+          <h1 className="newDestination">New Destination</h1>
           <form onSubmit={handleSubmit}>
-            <label>Country:</label>
+            <label className="destinationForm">Country:</label>
             <input type="text" name="country" value={destinations.country} onChange={handleChange} required></input>
-            <label>City:</label>
+            <label className="destinationForm">City:</label>
             <input type="text" name="city" value={destinations.city} onChange={handleChange}></input>
-            <label>Travel Date:</label>
+            <label className="destinationForm">Travel Date:</label>
             <input type="date" name="travelDate" value={destinations.travelDate} onChange={handleChange}></input>
-            <label>Return Date:</label>
+            <label className="destinationForm">Return Date:</label>
             <input type="date" name="returnDate" value={destinations.returnDate} onChange={handleChange}></input>
             <button>Submit</button>
           </form>

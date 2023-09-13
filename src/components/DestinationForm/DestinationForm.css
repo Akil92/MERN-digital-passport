@@ -1,9 +1,14 @@
 .form{
-  background-color:#D3C1AE;
+ color: red;
+ 
 }
 
 .title{
   font-weight: bolder;
   color:black;
+}
+
+.destinationForm{
+ 
 }
 
