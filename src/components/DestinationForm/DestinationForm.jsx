@@ -4,7 +4,7 @@ import * as destinationsService from "../../utilities/destinations/destinations-
 
 
 
-export default function DestinationForm({}){
+export default function DestinationForm({onNewDestination}){
   const [destinations, setDestinations] = useState({
     country:'',
     city:'',
@@ -23,6 +23,7 @@ export default function DestinationForm({}){
     evt.preventDefault();
     try {
         const newDestination = await destinationsService.create(destinations);
+        onNewDestination(newDestination);
         console.log(newDestination);
         setDestinations({
             country: '',

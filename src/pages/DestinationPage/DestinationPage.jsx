@@ -10,6 +10,11 @@ import DestinationForm from '../../components/DestinationForm/DestinationForm';
 export default function DestinationPage({}){
   const [destination, setDestination] = useState([]);
 
+  function onNewDestination(newDestinationData){
+    console.log(newDestinationData);
+    console.log(destination);
+    setDestination([...destination, newDestinationData]);
+  }
 
   useEffect(function() {
     async function getDestination() {
@@ -32,7 +37,7 @@ export default function DestinationPage({}){
          </div>  
         ))}
         </div>
-        <DestinationForm />
+        <DestinationForm onNewDestination={onNewDestination}/>
       </div>
     )
 }

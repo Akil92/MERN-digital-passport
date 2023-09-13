@@ -5,6 +5,7 @@ async function create(req, res) {
     console.log(req.body,'request');
     try{
       const destination = await Destination.create(req.body);
+      res.json(destination)
     } catch (err) {
         console.log(err);
        // 400 = Bad Request
