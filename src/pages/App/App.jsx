@@ -37,7 +37,7 @@ export default function App() {
       Reminisce on some of your favorite experiences through our review form for each trip you go on. 
     </h2>
     <h3 className="features">Features to come:<br></br>
-       A drop-down list of all countries, cities. We provide you with the informationso you don't have to type it in.<br></br>
+       A drop-down list of all countries, cities. We provide you with the information so you don't have to type it in.<br></br>
        Allowing users to upload images of their trip<br></br>
        Being able to view other user's destination reviews. This feature will help others with having additional information
        before visiting a country.
