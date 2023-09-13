@@ -6,7 +6,6 @@ export default function EditDestinationReviewPage({initReview}){
 
     return(
         <div>
-            Edit Review
           <EditDestinationReviewForm initReview={initReview} setReview={setReview} /> 
         </div>
     )

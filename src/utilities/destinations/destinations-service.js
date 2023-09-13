@@ -15,8 +15,3 @@ export async function getById(destinationID) {
     const destination = await destinationsAPI.getById(destinationID);
     return destination;
 }
-
-export async function deleteDestination(destinaitons) {
-    const destinaiton = await destinationsAPI.deletedDestination(destinaitons);
-    return destinaiton;
-}

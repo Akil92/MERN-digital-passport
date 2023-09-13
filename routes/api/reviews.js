@@ -8,8 +8,6 @@ router.post('/:id', reviewCtrl.addReview);
 
 router.delete('/:reviewId', reviewCtrl.deleteReview);
 
-router.get('./:reveiwId', reviewCtrl.editReview);
-
-router.post('./:reviewId', reviewCtrl.updateReview);
+router.post('/:reviewId', reviewCtrl.updateReview);
 
 module.exports = router;

@@ -1,16 +1,17 @@
 import { useState } from "react";
 import { useLocation } from "react-router-dom";
-import * as reviewsApi from "../../utilities/reviews"
+import * as reviewsApi from "../../utilities/reviews/reviews-api";
 
-export default function EditDestinationReviewForm({destinationID, setReviews}){
+
+export default function EditDestinationReviewForm({ setReviews }){
     const location = useLocation();
     const { initReview } = location.state
     const [editReview, setEditReview] = useState({
-        food:'',
-        weather:'',
-        scenery:'',
-        events:'',
-        additionalComments:''
+        food: initReview.food,
+        weather: initReview.weather,
+        scenery: initReview.scenery,
+        events: initReview.events,
+        additionalComments: initReview.additionalComments
     });
 
     const [error, setError] = useState('');
@@ -19,14 +20,14 @@ export default function EditDestinationReviewForm({destinationID, setReviews}){
         setEditReview({...editReview, [evt.target.name]: evt.target.value});
         setError('');
     }
+
     async function handleSubmit(evt) {
         evt.preventDefault();
+        const reviewId = initReview._id;
+        console.log(editReview);
         try {
-          const editedReview = await reviewsApi.editReview(reviewId);
-          const updated = await reviewsApi.updateReview(reviewId, editedReview);
-      
-          // Handle the results as needed
-          // ...
+          const updated = await reviewsApi.updateReview(reviewId, {...editReview});
+          console.log(updated);
         } catch (error) {
           setError('An error occurred while updating the review.');
           console.error(error);

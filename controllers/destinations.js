@@ -12,19 +12,6 @@ async function create(req, res) {
     }
   }
 
-  async function deleteDestination(req, res) {
-    try {
-      const destination = req.params.destinationID;
-      const deletedDestination = await Destination.findByIdAndDelete(destinationID);
-      if (!deletedDestination) {
-        return res.status(404).json({ message: 'Destination not found' });
-      }
-      res.json({ message: 'Destination deleted successfully' });
-    } catch (error) {
-      console.error(error);
-      res.status(500).json({ message: 'Internal server error' });
-    }
-  }
 
 async function index(req, res) {
   const destination = await Destination.find({});
@@ -53,6 +40,5 @@ try {
   module.exports ={
     create,
     index,
-    getById,
-    deleteDestination
+    getById
   }

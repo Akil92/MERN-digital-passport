@@ -42,10 +42,6 @@ async function deleteReview(req, res) {
   }
 }
 
-async function editReview(req, res) {
-  const editReview = await Review.findOne({_id: req.params.reviewId});
-  res.json(editReview);
-}
 
 async function updateReview(req, res) {
   try {
@@ -68,6 +64,5 @@ module.exports ={
   index,
   addReview,
   deleteReview,
-  editReview,
   updateReview
 }

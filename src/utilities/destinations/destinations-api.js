@@ -14,7 +14,3 @@ export async function index() {
 export async function getById(destinationID) {
     return sendRequest(`${BASE_URL}/${destinationID}`, 'GET'); 
 }
-
-export async function deletedDestination(destination) {
-    return sendRequest(`${BASE_URL}/${destination}`, 'DELETE');
-}
